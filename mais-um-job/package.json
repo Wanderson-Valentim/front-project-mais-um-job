@@ -12,7 +12,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
+    "@mui/x-date-pickers": "^6.19.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
