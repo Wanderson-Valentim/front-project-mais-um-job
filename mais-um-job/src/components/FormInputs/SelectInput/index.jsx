@@ -18,7 +18,7 @@ export default function SelectInput({ name, control, errors, label, items }) {
       control={control}
       render={({ field }) => (
         <FormControl error={errors[name] ? true : false} fullWidth>
-          <InputLabel id={`select-${name}`}>Área de Atuação</InputLabel>
+          <InputLabel id={`select-${name}`}>{label}</InputLabel>
 
           <Select
             labelId={`select-${name}`}
