@@ -13,7 +13,9 @@ export default function Register(){
       }}
     >
       <Stack spacing={4} alignItems={'center'}>
-        <img src="logo.svg" alt="Logo da Mais um Job" width={"150px"}/>
+        <LinkRouter to="/">
+          <img src="logo.svg" alt="Logo da Mais um Job" width={"150px"}/>
+        </LinkRouter>
 
         <Typography 
           variant='h5' 

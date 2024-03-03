@@ -1,7 +1,8 @@
-import { Grid } from "@mui/material"
+import { Button, Grid } from "@mui/material"
 import TextInput from "../../FormInputs/TextInput";
 import PropTypes from 'prop-types';
 import PasswordInput from "../../FormInputs/PasswordInput";
+import AddPhotoAlternateRoundedIcon from '@mui/icons-material/AddPhotoAlternateRounded';
 
 PersonalInputs.propTypes = {
   control: PropTypes.any.isRequired,
@@ -84,6 +85,10 @@ export default function PersonalInputs({control, errors}) {
           errors={errors}
           label="Telefone"
         />
+      </Grid>
+
+      <Grid item xs={12} sm={5}>
+        <Button startIcon={<AddPhotoAlternateRoundedIcon />} variant="outlined" color="main" fullWidth>Enviar Foto do Perfil</Button>
       </Grid>
     </>
   )
