@@ -23,3 +23,8 @@ export const loginSchema = yup.object().shape({
   email: yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
   password: yup.string().required('A senha é obrigatória'),
 });
+
+export const searchWorkersSchema = yup.object().shape({
+  areaOfActivity: yup.string().required('A área de atuação é obrigatória'),
+  local: yup.string().required('A cidade é obrigatória')
+});

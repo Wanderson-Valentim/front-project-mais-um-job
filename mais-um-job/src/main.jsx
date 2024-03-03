@@ -9,11 +9,13 @@ import "./style.css"
 import theme from './theme/palette';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <></>,
+    element: <Home />,
   },
   {
     path: "/login",
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 
