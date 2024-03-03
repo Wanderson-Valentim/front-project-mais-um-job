@@ -16,7 +16,7 @@ const mockUser = {
   local: 'Barbalha', 
   whatsapp: '88999999999', 
   instagram: '@user',
-  profission: 'Pedreiro',
+  profession: 'Pedreiro',
   description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, eos maxime! Molestias impedit dicta in nisi, assumenda ab omnis ducimus consequatur saepe expedita mollitia atque cumque eaque dolores amet a.',
 }
 
@@ -30,7 +30,8 @@ const mockImagens = [
 
 export default function Profile(){
   const { state } = useLocation();
-  const [userData] = useState(state?.workerData ? state.userData : mockUser);
+  const [showButton,setShowEditButton]=useState(!state?.workerData);
+  const [userData] = useState(state?.workerData ? state.workerData : mockUser);
 
   return(
     <>
@@ -59,7 +60,7 @@ export default function Profile(){
               <Avatar src="/broken-image.jpg" sx={{width: "160px", height: "160px"}}/>
 
               <Typography variant='h6' textAlign="center"><Box component={'span'} fontWeight={600}>Nome: </Box>{userData.name}</Typography>
-              <Typography variant='h6' textAlign="center"><Box component={'span'} fontWeight={600}>Profissão: </Box>{userData.profission}</Typography>
+              <Typography variant='h6' textAlign="center"><Box component={'span'} fontWeight={600}>Profissão: </Box>{userData.profession}</Typography>
               <Typography variant='h6' textAlign="center"><Box component={'span'} fontWeight={600}>Cidade: </Box>{userData.local}</Typography>
 
               <Typography variant='h6' fontWeight={600} textAlign="center">Entre em contato pressionando</Typography>
@@ -82,8 +83,10 @@ export default function Profile(){
                 </LinkRouter>
               </Box>
             </Stack>
-
+            {
+              showButton &&
             <Button variant='contained' color='main' size='large' fullWidth>Editar</Button>
+            }
           </Stack>
         </Grid>
 
@@ -101,7 +104,8 @@ export default function Profile(){
               }}
             >
               <Typography variant='h5' fontWeight={600}>Imagens do Serviço</Typography>
-
+              {
+                showButton &&
               <Button 
                 color='main'
                 size='large'
@@ -109,6 +113,7 @@ export default function Profile(){
               >
                 Adicionar Fotos
               </Button>
+              }
             </Box>
 
             <Box

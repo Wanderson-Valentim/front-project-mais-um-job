@@ -10,12 +10,15 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { personalSchema, professionalSchema } from '../../validations/formSchemas';
 import PersonalInputs from '../InputGroups/PersonalInputs';
 import ProfessionalInputs from '../InputGroups/ProfessionalInputs';
+import { useNavigate } from 'react-router-dom';
 
 const steps = ['Dados Pessoais', 'Dados do Serviço'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const theme = useTheme();
+
+  const navigate = useNavigate();
 
   const {
     control, 
@@ -34,7 +37,7 @@ export default function HorizontalLinearStepper() {
       whatsapp: '', 
       instagram: '',
       areaOfActivity: '',
-      profission: '',
+      profession: '',
       description: '',
     }
   })
@@ -45,6 +48,8 @@ export default function HorizontalLinearStepper() {
 
   const onSubmitProfessionalData = (data) => {
     console.log(data);
+    navigate('/');
+
   }
 
   const handleNext = () => {

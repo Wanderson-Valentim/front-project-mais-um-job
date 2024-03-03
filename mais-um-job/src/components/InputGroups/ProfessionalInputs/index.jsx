@@ -65,7 +65,7 @@ export default function ProfessionalInputs({control, errors}) {
 
       <Grid item xs={12} md={4}>
         <TextInput
-          name="profission"
+          name="profession"
           control={control}
           errors={errors}
           label="Profissão"

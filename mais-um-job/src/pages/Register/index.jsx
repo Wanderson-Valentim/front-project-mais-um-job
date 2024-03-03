@@ -6,6 +6,7 @@ export default function Register(){
   return(
     <Box
       sx={{
+        p:3,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
