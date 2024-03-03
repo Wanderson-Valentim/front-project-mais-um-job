@@ -12,6 +12,65 @@ import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { Link } from 'react-router-dom';
 import FloatingMenu from '../../components/FloatingMenu';
+import WorkerCard from '../../components/WorkerCard';
+import { useState } from 'react';
+
+const mockWorkers = [
+  {
+    name: 'Maria Silva',
+    phone: '88777777777',
+    local: 'Crato', // Alterado para Crato
+    whatsapp: '88777777777',
+    instagram: '@maria_silva',
+    profession: 'Qualquer', // Alterado para "Qualquer"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget felis at arcu sollicitudin luctus. Nam fermentum lectus id nisl dignissim, eget posuere eros tempus.'
+  },
+  {
+    name: 'Carlos Souza',
+    phone: '88666666666',
+    local: 'Juazeiro do Norte', // Alterado para Juazeiro do Norte
+    whatsapp: '88666666666',
+    instagram: '@carlos_souza',
+    profession: 'Qualquer', // Alterado para "Qualquer"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac felis libero. Maecenas laoreet dolor eget nunc maximus, et convallis est lacinia.'
+  },
+  {
+    name: 'Ana Oliveira',
+    phone: '88555555555',
+    local: 'Barbalha', // Alterado para Barbalha
+    whatsapp: '88555555555',
+    instagram: '@ana_oliveira',
+    profession: 'Qualquer', // Alterado para "Qualquer"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet justo sed ante aliquam vehicula eget non purus.'
+  },
+  {
+    name: 'Pedro Santos',
+    phone: '88444444444',
+    local: 'Crato', // Alterado para Crato
+    whatsapp: '88444444444',
+    instagram: '@pedro_santos',
+    profession: 'Qualquer', // Alterado para "Qualquer"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet lectus ut metus dapibus iaculis.'
+  },
+  {
+    name: 'Mariana Costa',
+    phone: '88333333333',
+    local: 'Juazeiro do Norte', // Alterado para Juazeiro do Norte
+    whatsapp: '88333333333',
+    instagram: '@mariana_costa',
+    profession: 'Qualquer', // Alterado para "Qualquer"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Donec vitae sapien placerat, tincidunt magna et, suscipit orci.'
+  },
+  {
+    name: 'João Oliveira',
+    phone: '88222222222',
+    local: 'Barbalha', // Alterado para Barbalha
+    whatsapp: '88222222222',
+    instagram: '@joao_oliveira',
+    profession: 'Qualquer', // Alterado para "Qualquer"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consequat, metus vel tempus sodales, quam nulla condimentum ligula, quis convallis lacus nibh sed dui.'
+  }
+];
 
 const mockServices = [
   {
@@ -44,6 +103,7 @@ const mockLocal = [
 ];
 
 export default function Home() {
+  const [showResult,setShowResult]=useState(false);
   const theme = useTheme();
   const isLogged = true; 
 
@@ -61,6 +121,7 @@ export default function Home() {
 
   const handleFetchData = (data) => {
     console.log(data);
+    setShowResult(true);
   };
 
   return (
@@ -96,7 +157,7 @@ export default function Home() {
           p={3}
           spacing={3}
           alignItems={'center'} 
-          sx={{width: {sm:"500px", md:"750px"}}}
+          sx={{width: {sm:"550px", md:"900px"}}}
         >
           <img src="logo.svg" alt="Logo da Mais um Job" width={"300px"}/>
 
@@ -128,6 +189,21 @@ export default function Home() {
           <Button variant="contained" color='main' size='large' endIcon={<SearchRoundedIcon />} onClick={handleSubmit(handleFetchData)}>
             Pesquisar
           </Button>
+          {showResult &&
+            <Box
+              sx={{
+                display: 'flex',
+                gap: '15px',
+                flexWrap:'wrap',
+                justifyContent:'space-evenly'
+              }}
+            >
+              {
+
+                mockWorkers.map(worker=>(<WorkerCard workerData={worker} key={worker.name}/>))
+              }
+            </Box>
+          }
         </Stack>
       </Box>
     </>
